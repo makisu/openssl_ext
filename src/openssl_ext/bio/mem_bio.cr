@@ -13,7 +13,7 @@ class OpenSSL::MemBIO < IO
     LibCrypto.bio_read(self, data, data.size)
   end
 
-  {% if compare_versions(Crystal::VERSION, "0.35.0") == 0 %}
+  {% if compare_versions(Crystal::VERSION, "0.35.1") == 0 %}
     def write(data : Bytes) : Int64
       LibCrypto.bio_write(self, data, data.size)
       data.size.to_i64
